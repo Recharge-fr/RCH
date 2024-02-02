@@ -1277,65 +1277,7 @@ $('.bxslider-mobile').bxSlider({
 });
     //]]>
 </script>
-<script type="text/javascript">
-    //<![CDATA[
-    $(document).ready(function() {
-        $.get('/api/shop/category/quickbuy', function(data) {
-            var quickbuy = $('.quickbuyContainer');
-            quickbuy.append(data);
 
-            dataLayer.push({
-                'event': 'impressions',
-                'ecommerce': {
-                    'impressions': [{
-                        'name': quickbuy.find('meta[itemprop="name"]').attr('content'),
-                        'id': quickbuy.find('.product-ean-code').attr('dataLayerContent'),
-                        'price': quickbuy.find('meta[itemprop="price"]').attr('content'),
-                        'brand': quickbuy.find('meta[itemprop="brand"]').attr('content'),
-                        'category': quickbuy.find('meta[itemprop="category"]').attr('content'),
-                        'position': 1
-                    }]
-                }
-            });
-
-            $('.quickbuyContainer form').submit(function(e) {
-                var quickbuy = $('.quickbuyContainer');
-                dataLayer.push({
-                    'event': 'addToCart',
-                    'ecommerce': {
-                        'add': {
-                            'products': [{
-                                'name': quickbuy.find('meta[itemprop="name"]').attr('content'),
-                                'id': quickbuy.find('.product-ean-code').attr('dataLayerContent'),
-                                'price': quickbuy.find('meta[itemprop="price"]').attr('content'),
-                                'brand': quickbuy.find('meta[itemprop="brand"]').attr('content'),
-                                'category': quickbuy.find('meta[itemprop="category"]').attr('content'),
-                                'quantity': 1
-                            }]
-                        }
-                    }
-                });
-            });
-        });
-    });
-
-    $('body').on('click', '.quickbuy img', function() {
-        $('.quickbuy').find('form').submit();
-        $(this).closest('.quickbuy').find('.order-button').trigger('click');
-    });
-
-    $('body').on('click', '.quickbuy .order-button', function(e) {
-        $.get('/shop/product/popup', {
-                product: $(this).attr('data-product')
-            }, function(data) {
-                $('body').append(data);
-            }
-        );
-        return false;
-    });
-
-    //]]>
-</script>
 <script type="text/javascript">
     //<![CDATA[
     $(document).ready(function(){
