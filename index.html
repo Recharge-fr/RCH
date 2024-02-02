@@ -1392,32 +1392,7 @@ $('.bxslider-mobile').bxSlider({
 
     
 
-                                <script>
-        $(document).ready(function () {
-            $('.bxslider a').on('click', function(e) {
-
-                e.preventDefault();
-
-                element = $(this);
-
-                dataLayer.push({
-                    'event': 'promotionClick',
-                    'ecommerce': {
-                        'promoClick': {
-                            'promotions': [{
-                                'promotionid': '' + $(this).find('img').attr('data-id') + '',
-                                'name': '' + $(this).find('img').attr('alt') + '',
-                                'position': 'header'
-                            }]
-                        }
-                    },
-                    'eventCallback': function() {
-                        document.location = element.attr('href');
-                    }
-                });
-            });
-        });
-    </script>
+                              
             <script async src="https://b004.recharge.fr/script.js"></script>
     </body>
 
