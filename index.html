@@ -1276,31 +1276,18 @@ $('.bxslider-mobile').bxSlider({
     pause: 8000
 });
     //]]>
+const toggleNavigation = document.getElementById('toggle-navigation');
+const mobileNavigation = document.getElementById('mobile-navigation');
+const menuUl = document.getElementById('main-menu');
 
- document.addEventListener('DOMContentLoaded', function() {
-    var toggleButton = document.getElementById('toggle-navigation');
-    var mobileNavigation = document.getElementById('mobile-navigation');
-
-    toggleButton.addEventListener('click', function() {
-        mobileNavigation.classList.toggle('active');
-    });
-
-    var categoryItems = document.querySelectorAll('#main-menu .category');
-
-    categoryItems.forEach(function(item) {
-        item.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent the click event from reaching the parent
-            this.classList.toggle('active');
-        });
-    });
-
-    document.addEventListener('click', function() {
-        mobileNavigation.classList.remove('active');
-        categoryItems.forEach(function(item) {
-            item.classList.remove('active');
-        });
-    });
+toggleNavigation.addEventListener('click', () => {
+    if (window.innerWidth <= 768) { // Adjust the width threshold as needed
+        mobileNavigation.classList.toggle('mobile-menu');
+        menuUl.classList.toggle('mobile-menu');
+    }
 });
+
+
 </script>
 
 
