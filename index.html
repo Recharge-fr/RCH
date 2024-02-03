@@ -1277,27 +1277,37 @@ $('.bxslider-mobile').bxSlider({
 });
     
 <script type="text/javascript">
-$(document).ready(function(){
-        var toggleNavigation = $('#toggle-navigation');
-        var mobileNavigation = $('#mobile-navigation');
-        var categories = $('#categories');
-
-        toggleNavigation.click(function() {
-            mobileNavigation.toggleClass('mobile-menu');
-            categories.toggleClass('mobile-menu');
-        });
-
-        // Close mobile menu when clicking outside
-        $(document).click(function(e) {
-            var target = $(e.target);
-            if (!target.is(toggleNavigation) && !target.closest('#mobile-header').length) {
-                mobileNavigation.removeClass('mobile-menu');
-                categories.removeClass('mobile-menu');
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function(){
+        $('#"categories').click({
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: false,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true
+                }
             }
+            ]
         });
 
-        // Add any other specific behavior or modifications as needed for your use case.
+        $('#your_close_button_id').click(function() {
+            $.get('/your/shop/product/usps', {
+                showUsps: 0
+            }, function() {
+                $('#your_usps_section_id').remove();
+            });
+        });
     });
+    //]]>
+</script>
 </script>
 
 
