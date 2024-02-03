@@ -1278,6 +1278,23 @@ $('.bxslider-mobile').bxSlider({
     pause: 8000
 });
     //]]>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var toggleButton = document.getElementById('toggle-navigation');
+    var mobileNavigation = document.getElementById('mobile-navigation');
+
+    toggleButton.addEventListener('click', function() {
+        mobileNavigation.classList.toggle('active');
+    });
+
+    var categoryItems = document.querySelectorAll('#main-menu .category');
+
+    categoryItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            this.classList.toggle('active');
+        });
+    });
+});
 </script>
 
 
