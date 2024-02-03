@@ -1275,17 +1275,8 @@ $('.bxslider-mobile').bxSlider({
     auto: ($(".bxslider-mobile li").length > 1) ? true: false,
     pause: 8000
 });
-    //]]>
-const toggleNavigation = document.getElementById('toggle-navigation');
-const mobileNavigation = document.getElementById('mobile-navigation');
-const menuUl = document.getElementById('main-menu');
+    
 
-toggleNavigation.addEventListener('click', () => {
-    if (window.innerWidth <= 768) { // Adjust the width threshold as needed
-        mobileNavigation.classList.toggle('mobile-menu');
-        menuUl.classList.toggle('mobile-menu');
-    }
-});
 
 
 </script>
