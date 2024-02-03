@@ -28,41 +28,22 @@
 " media="" rel="stylesheet" type="text/css" />
    
        <style>
-
-  #mobile-navigation {
+#toggle-navigation {
     display: none;
 }
 
-@media screen and (max-width: 767px) {
-    #toggle-navigation {
-        display: block;
-        cursor: pointer;
-    }
-
-    #mobile-navigation {
-        display: block;
-        margin-top: 10px; /* Add margin or adjust as needed */
-    }
-
-    #categories {
-        display: none;
-    }
-
-    #toggle-navigation span::after {
-        content: '\25BC'; /* Unicode for down arrow */
-        margin-left: 5px;
-    }
-
-    #toggle-navigation.active span::after {
-        content: '\25B2'; /* Unicode for up arrow */
-    }
-
-    #toggle-navigation.active + #mobile-navigation #categories {
-        display: block;
-    }
+#mobile-header label {
+    display: block;
+    cursor: pointer;
 }
-</style>
-           
+
+#mobile-navigation {
+    display: none;
+}
+
+#toggle-navigation:checked + #mobile-header #mobile-navigation {
+    display: block;
+}
     </head>
 
 <body>
