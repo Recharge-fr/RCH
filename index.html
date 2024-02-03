@@ -27,7 +27,41 @@
 <link href="https://static.rapido.com/media/frontend/stylesheets/recharge/main.css?v=1706863405
 " media="" rel="stylesheet" type="text/css" />
    
-       
+       <style>
+
+  #mobile-navigation {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    #toggle-navigation {
+        display: block;
+        cursor: pointer;
+    }
+
+    #mobile-navigation {
+        display: block;
+        margin-top: 10px; /* Add margin or adjust as needed */
+    }
+
+    #categories {
+        display: none;
+    }
+
+    #toggle-navigation span::after {
+        content: '\25BC'; /* Unicode for down arrow */
+        margin-left: 5px;
+    }
+
+    #toggle-navigation.active span::after {
+        content: '\25B2'; /* Unicode for up arrow */
+    }
+
+    #toggle-navigation.active + #mobile-navigation #categories {
+        display: block;
+    }
+}
+</style>
            
     </head>
 
