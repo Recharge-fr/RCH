@@ -1279,7 +1279,7 @@ $('.bxslider-mobile').bxSlider({
 });
     //]]>
 
-  document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
     var toggleButton = document.getElementById('toggle-navigation');
     var mobileNavigation = document.getElementById('mobile-navigation');
 
@@ -1290,8 +1290,16 @@ $('.bxslider-mobile').bxSlider({
     var categoryItems = document.querySelectorAll('#main-menu .category');
 
     categoryItems.forEach(function(item) {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent the click event from reaching the parent
             this.classList.toggle('active');
+        });
+    });
+
+    document.addEventListener('click', function() {
+        mobileNavigation.classList.remove('active');
+        categoryItems.forEach(function(item) {
+            item.classList.remove('active');
         });
     });
 });
